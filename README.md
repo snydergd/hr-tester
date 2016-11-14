@@ -31,7 +31,7 @@ $ unlink ~/.bashrc.d/hr_completion
 The simplest way is to just add hackerrank.py to your path.
 
 ## Configuration ##
-**~/.hackerrank/settings.json**: Global settings for this tool
+**~/.hackerrank/settings.json**: Global settings for this tool<br>
 **.hackerrank.json**: In any challenge directory; local settings file
 
 ## Usage ##
