@@ -1,0 +1,22 @@
+# bash completion for hackerrank.py script
+# which I wrote to help setup for hackerrank challenge debugging
+
+eval "$(register-python-argcomplete hr)";
+
+hr() {
+  # Find location of this (hr.sh) file, and thus, the location of hackerrank.py
+  local SOURCE="${BASH_SOURCE[0]}";
+  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )";
+    SOURCE="$(readlink "$SOURCE")";
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"; # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  done;
+  export HACKERRANK_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )";
+
+  # Now actually run the script (or change directory, as needed)
+  if [ $# -eq 0 ]; then
+    cd $($HACKERRANK_DIR/hackerrank.py show dir);
+  else
+    $HACKERRANK_DIR/hackerrank.py $@;
+  fi;
+}
