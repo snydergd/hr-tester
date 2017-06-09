@@ -11,6 +11,7 @@ Created to end the need for manually copying and pasting code and test cases to 
 Note that some of the requirements are just what I used, but may be easy to do without.
 - Unix-like system (mainly for execution-timing functionality; this might change)
 - PhantomJS (optional; used to scrape website)
+- Python 3 (though you might be able to get it to work with Python 2)
 - Python modules: json, argcomplete (command-line completion), pyperclip (copy and paste)
 - Bash (if you don't have this, just run `hackerrank.py` directly)
 
